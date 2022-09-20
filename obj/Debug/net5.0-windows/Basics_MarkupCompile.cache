@@ -4,17 +4,17 @@
 winexe
 C#
 .cs
-C:\Users\lavin\OneDrive\Рабочий стол\12314-master\obj\Debug\net5.0-windows\
+C:\Users\Student\Downloads\12314-master\obj\Debug\net5.0-windows\
 Basics
 none
 false
 TRACE;DEBUG;NET;NET5_0;NETCOREAPP
-C:\Users\lavin\OneDrive\Рабочий стол\12314-master\App.xaml
-5-556467040
+C:\Users\Student\Downloads\12314-master\App.xaml
+67822368
 
-10-33484113
+12-55195713
 193-1891726104
-MainWindow.xaml;View\Windows\AdminWindows.xaml;View\Windows\AuthorizationWindow.xaml;View\Windows\BuyerWindow.xaml;View\Windows\ManagerWindow.xaml;
+MainWindow.xaml;View\Pages\UsersPage.xaml;View\Windows\AdminWindows.xaml;View\Windows\AuthorizationWindow.xaml;View\Windows\BuyerWindow.xaml;View\Windows\ManagerWindow.xaml;
 
 False
 

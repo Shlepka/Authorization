@@ -8,6 +8,24 @@
         
         Title="AdminWindows" Height="450" Width="800">
     <Grid>
-       
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="40"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="250"/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <StackPanel>
+            <Button 
+                    Height="40"
+                    x:Name="btnLoadUsers"
+                    FontSize="17"
+                    Content="Загрузить пользователей" 
+                    FontWeight="Bold"
+                    Click="btnLoadUsers_Click"/>
+
+        </StackPanel>
+        <Frame x:Name="mainFrame" Grid.Column="1"/>
     </Grid>
 </Window>

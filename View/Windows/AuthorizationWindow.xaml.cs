@@ -29,46 +29,8 @@ namespace Basics.View.Windows
         public AuthorizationWindow()
         {
             InitializeComponent();
-            _users = new List<User>()
-            {
-                new User("firtsname","middle","last","log","pass","email","a",Role.Admin),
-                new User()
-                {
-                    FirstName="Stepan",                // Вводим данные о пользователях
-                    MidleName="Lavinsky",
-                    LastName="Olegovich",
-                    Email="lavinsky2004@gmail.com",
-                    Login="admin",
-                    Password="admin",
-                    Phone="+89182202216",
-                    Role=Role.Admin
-                },
-                new User()
-                {
-                    FirstName="Vitalii",
-                    MidleName="Kulbed",
-                    LastName="Yorivich",
-                    Email="dedinsade282@gmail.com",
-                    Login="buyer",
-                    Password="buyer",
-                    Phone="+88005535355",
-                    Role=Role.Buyer
-                },
-                new User()
-                {
-                    FirstName="Dima",
-                    MidleName="Lilia",
-                    LastName="----",
-                    Email="dyrak@maii.ru",
-                    Login="manager",
-                    Password="manager",
-                    Phone="+89189891129",
-                    Role=Role.Manager
-                }
-            };
-            var user = UserLogic.FindUserByFirstName(_users, "firstnsme");
-            
 
+            _users = UserParser.ParseFile("users1.txt").ToList();
         }
 
 
@@ -76,16 +38,28 @@ namespace Basics.View.Windows
 
         private void bthSignIn_Click(object sender, RoutedEventArgs e)
         {
-            var user = UserLogic.Validate(_users, tbLogin.Text, tbPassword.Password);
-            if (user is not null)
+            try
             {
-                UserLogic.ValidateRole(user, this);
+                if (tbLogin.Text == string.Empty || tbPassword.Password == string.Empty)
+                {
+                    throw new Exception("Введите логин или пароль!");
+                }
+
+                if (UserLogic.Validate(tbLogin.Text, tbPassword.Password))
+                {
+                    new AdminWindows().Show();
+                    Close();
+                }
+                else
+                {
+                    throw new Exception("Неверный логин или пароль!");
+                }
             }
-            else
+            catch (Exception ex)
             {
-                MessageBox.Show("Вас нет в системе", "Ошибка",
-                    MessageBoxButton.OK, MessageBoxImage.Error);    // ошибка при вводе неккоректных данных
+                MessageBox.Show(ex.Message, "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
             }
+
         }
     }
 

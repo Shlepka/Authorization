@@ -13,39 +13,39 @@ namespace Basics.Model
     public class User                             //что-то непонятное
                                                  // узнать подробнее
     {
+        public int Id { get; set; }
         public string FirstName { get; set; }
-        public string MidleName { get; set; }
+        public string MiddleName { get; set; }
         public string LastName { get; set; }
-        public string Login { get; set; }
-        public string Password { get; set; }
-        public string Email { get; set; }
-        public string Phone { get; set; }
+        public DateTime BornDate { get; set; }
+        public decimal Salary { get; set; }
 
-        public Role Role { get; set; }
         public User()
         {
+            Id = 0;
             FirstName = string.Empty;
-            MidleName = string.Empty;
+            MiddleName = string.Empty;
             LastName = string.Empty;
-            Login = string.Empty;
-            Password = string.Empty;
-            Email = string.Empty;
-            Phone = string.Empty;
-            Role = Role.Unknown;
+            BornDate = DateTime.MinValue;
+            Salary = 0;
         }
 
-        public User(string firstName, string middleName, String lastName, string login, string password, string email,
-            string phone, Role role)
+        public User(int id, string firstName, string middleName, string lastName, DateTime bornDate, decimal salary)
         {
-            FirstName = firstName;
-            MidleName = middleName;
-            LastName = lastName;
-            Login = login;
-            Password = password;
-            Email = email;
-            Phone = phone;
-            Role = role;
 
+            Id = id;
+            FirstName = firstName;
+            MiddleName = middleName;
+            LastName = lastName;
+            BornDate = bornDate;
+            Salary = salary;
+        }
+
+        public override string ToString()
+        {
+            return $"№:{Id} \n ФИО: {FirstName} {MiddleName} {LastName}\nДата рождения: {BornDate}\n" + $"Зарплата:{Salary}";
 
         }
     } }
+
+
